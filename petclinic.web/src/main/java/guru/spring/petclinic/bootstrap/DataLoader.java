@@ -2,20 +2,20 @@ package guru.spring.petclinic.bootstrap;
 
 import guru.spring.petclinic.model.Owner;
 import guru.spring.petclinic.model.Vet;
-import guru.spring.petclinic.service.map.OwnerServiceMap;
-import guru.spring.petclinic.service.map.VetServiceMap;
+import guru.spring.petclinic.service.OwnerService;
+import guru.spring.petclinic.service.VetService;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
 @Component
 public class DataLoader implements CommandLineRunner {
 
-    private final OwnerServiceMap ownerServiceMap;
-    private final VetServiceMap vetServiceMap;
+    private final OwnerService ownerService;
+    private final VetService vetService;
 
-    DataLoader() {
-        this.ownerServiceMap = new OwnerServiceMap();
-        this.vetServiceMap = new VetServiceMap();
+    DataLoader(OwnerService ownerService, VetService vetService) {
+        this.ownerService = ownerService;
+        this.vetService = vetService;
     }
 
     @Override
@@ -30,8 +30,8 @@ public class DataLoader implements CommandLineRunner {
         owner2.setFirstName("Tyler");
         owner2.setLastName("Durdle");
 
-        this.ownerServiceMap.save(owner1);
-        this.ownerServiceMap.save(owner2);
+        this.ownerService.save(owner1);
+        this.ownerService.save(owner2);
 
         System.out.println("Loading Owners");
 
@@ -45,8 +45,8 @@ public class DataLoader implements CommandLineRunner {
         vet2.setFirstName("Tinga");
         vet2.setLastName("Dunga");
 
-        this.vetServiceMap.save(vet1);
-        this.vetServiceMap.save(vet2);
+        this.vetService.save(vet1);
+        this.vetService.save(vet2);
         System.out.println("Loading Vets");
     }
 }
