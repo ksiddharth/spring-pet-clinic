@@ -3,9 +3,11 @@ package guru.spring.petclinic.service.map;
 import guru.spring.petclinic.model.PetType;
 import guru.spring.petclinic.service.PetTypeService;
 import net.bytebuddy.implementation.bind.annotation.Super;
+import org.springframework.stereotype.Service;
 
 import java.util.Set;
 
+@Service
 public class PetTypeServiceMap extends AbstractMapService <PetType, Long> implements PetTypeService {
 
     @Override
