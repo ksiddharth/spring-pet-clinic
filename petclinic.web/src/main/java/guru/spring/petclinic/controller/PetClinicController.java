@@ -13,4 +13,9 @@ public class PetClinicController {
         ModelAndView mav = new ModelAndView("index");
         return mav;
     }
+
+    @RequestMapping({"oups"})
+    public String oopsHandler() {
+        return "not-implemented";
+    }
 }
